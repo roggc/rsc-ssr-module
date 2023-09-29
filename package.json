@@ -1,0 +1,30 @@
+{
+  "name": "rsc-ssr-module",
+  "version": "1.0.0",
+  "description": "React Server Components plus Server Side Rendering module to be used in The RSC-SSR Setup (https://github.com/roggc/rsc-ssr)",
+  "main": "index.js",
+  "type": "module",
+  "exports": {
+    "./client": "./dist/client.js",
+    "./server": "./dist/server.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "keywords": [],
+  "author": "roger gomez castells (roggc)",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.0",
+    "@babel/preset-react": "^7.22.15",
+    "@rollup/plugin-babel": "^6.0.3",
+    "rollup": "^3.29.4"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0",
+    "express": ">=4.18.2"
+  }
+}
