@@ -2,7 +2,7 @@ import path from "path";
 import fs from "fs-extra";
 import fg from "fast-glob";
 
-const eject = async (settings = {}) => {
+const eject_ = async (settings = {}) => {
   const nodeModulesDir = settings.sourceDir || path.join(".", "node_modules");
   const destDir = settings.destDir || path.join(".", "ejected");
   const codeFiles = settings.codeFiles || [
@@ -58,5 +58,21 @@ const eject = async (settings = {}) => {
   }
   return { updatedFiles, updatedDependencies };
 };
+
+const eject = () =>
+  eject_({
+    sourceDir: "./node_modules",
+    destDir: ".",
+    codeFiles: ["src/**/*.{js,jsx,ts,tsx,mjs,es,es6}"],
+    dependenciesFilter: (set) => {
+      for (const e of set) {
+        if (e === "rsc-ssr-module") {
+          const newSet = new Set();
+          newSet.add(e);
+          return newSet;
+        }
+      }
+    },
+  });
 
 export default eject;
