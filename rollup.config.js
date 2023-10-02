@@ -1,4 +1,5 @@
 import babel from "@rollup/plugin-babel";
+import shebang from "rollup-plugin-preserve-shebang";
 
 export default [
   {
@@ -23,6 +24,9 @@ export default [
       format: "esm",
       file: "dist/eject.js",
     },
-    plugins: [babel({ babelHelpers: "bundled", exclude: "node_modules/**" })],
+    plugins: [
+      babel({ babelHelpers: "bundled", exclude: "node_modules/**" }),
+      shebang(),
+    ],
   },
 ];

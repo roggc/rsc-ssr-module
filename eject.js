@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import path from "path";
 import fs from "fs-extra";
 import fg from "fast-glob";
@@ -75,4 +77,6 @@ const eject = () =>
     },
   });
 
-export default eject;
+// export default eject;
+
+eject();

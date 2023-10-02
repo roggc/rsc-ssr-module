@@ -4,10 +4,12 @@
   "description": "React Server Components plus Server Side Rendering module to be used in The RSC-SSR Setup (https://github.com/roggc/rsc-ssr)",
   "main": "index.js",
   "type": "module",
+  "bin": {
+    "rsc-ssr-module": "./dist/eject.js"
+  },
   "exports": {
     "./client": "./dist/client.js",
-    "./server": "./dist/server.js",
-    ".": "./dist/eject.js"
+    "./server": "./dist/server.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,7 +23,8 @@
     "@babel/core": "^7.23.0",
     "@babel/preset-react": "^7.22.15",
     "@rollup/plugin-babel": "^6.0.3",
-    "rollup": "^3.29.4"
+    "rollup": "^3.29.4",
+    "rollup-plugin-preserve-shebang": "^1.0.1"
   },
   "peerDependencies": {
     "express": ">=4.18.2",
