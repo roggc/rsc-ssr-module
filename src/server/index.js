@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import { renderToPipeableStream } from "react-dom/server";
 import { fillJSXWithClientComponents } from "../client/utils/index.js";
