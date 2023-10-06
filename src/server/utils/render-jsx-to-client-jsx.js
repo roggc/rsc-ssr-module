@@ -14,7 +14,7 @@ export async function renderJSXToClientJSX(jsx, key = null) {
         async (child, i) =>
           await renderJSXToClientJSX(
             child,
-            i + (typeof child.type === "string" ? "_" + child.type : "")
+            i + (typeof child?.type === "string" ? "_" + child?.type : "")
           )
       )
     );
