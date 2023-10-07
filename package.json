@@ -1,6 +1,6 @@
 {
   "name": "rsc-ssr-module",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "React Server Components plus Server Side Rendering module to be used in The RSC-SSR Setup (https://github.com/roggc/rsc-ssr)",
   "main": "index.js",
   "type": "module",
