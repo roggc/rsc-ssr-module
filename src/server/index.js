@@ -5,7 +5,7 @@ import { fillJSXWithClientComponents } from "../client/utils/index.js";
 import { renderJSXToClientJSX, stringifyJSX } from "./utils/index.js";
 import React from "react";
 
-export const runApp = (Router) => {
+export const getApp = (Router) => {
   const app = express();
   app.use(express.static("public"));
   app.use(express.json());
@@ -48,11 +48,7 @@ export const runApp = (Router) => {
     res.end();
   });
 
-  const port = process.env.PORT || 8080;
-
-  app.listen(port, () => {
-    console.log(`app listening on port ${port}`);
-  });
+  return app;
 };
 
 export { RCC } from "./components/rcc.js";
