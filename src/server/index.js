@@ -38,14 +38,9 @@ export const getApp = (Router) => {
         res.end(clientJSXString);
       }
     } catch (err) {
-      next(err);
+      console.error(err);
+      return res.status(err.status || 500).json({ error: err });
     }
-  });
-
-  app.use(function (err, req, res) {
-    console.error(err);
-    res.status(err.status || 500);
-    res.end();
   });
 
   return app;
