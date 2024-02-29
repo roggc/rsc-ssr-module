@@ -75,10 +75,11 @@ export async function renderJSXToClientJSX(jsx, key = null) {
       // Go over every value inside, and process it too in case there's some JSX in it.
       return Object.fromEntries(
         await Promise.all(
-          Object.entries(jsx).map(async ([propName, value]) => [
-            propName,
-            await renderJSXToClientJSX(value),
-          ])
+          Object.entries(jsx).map(async ([propName, value]) =>
+            typeof value === "function"
+              ? [propName, await renderJSXToClientJSX(null)]
+              : [propName, await renderJSXToClientJSX(value)]
+          )
         )
       );
     }
