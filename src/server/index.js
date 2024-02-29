@@ -11,11 +11,7 @@ export const getApp = (Router) => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
-  app.get("/favicon.ico", (req, res, next) => {
-    res.end("");
-  });
-
-  app.use(async (req, res, next) => {
+  app.use(async (req, res) => {
     try {
       const url = new URL(req.url, `http://${req.headers.host}`);
       const clientJSX = await renderJSXToClientJSX(
