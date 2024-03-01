@@ -20,6 +20,8 @@ const fetcher = (componentName, body) =>
       return <Error errorMessage={error.message} />;
     });
 
+const fetcherSWR = ([, componentName, body]) => fetcher(componentName, body);
+
 const getReader = () => {
   let done = false;
   let promise = null;
@@ -75,7 +77,6 @@ export function RSC({
 
   const reader = useMemo(() => getReader(), [propsChangedKey, softKey]);
 
-  const fetcherSWR = ([, componentName, body]) => fetcher(componentName, body);
   const swrArgs = useMemo(
     () => [softKey, componentName, body],
     [componentName, body, softKey]
