@@ -37,8 +37,8 @@ const getReader = () => {
       promise = new Promise(async (resolve) => {
         try {
           value = await fetcher();
-        } catch (e) {
-          value = errorJSX;
+        } catch (error) {
+          value = <Error errorMessage={error.message} />;
         } finally {
           done = true;
           promise = null;
